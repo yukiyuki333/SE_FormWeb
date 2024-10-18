@@ -3,6 +3,7 @@ import { SingleChooseQuestion } from "../component/SingleChooseQuestion";
 import { useForm } from '@mantine/form';
 import { studentInfoInitValue, presenters } from "../component/formSetting";
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,6 +14,8 @@ export function FormPage() {
         initialValues: studentInfoInitValue,
 
     });
+
+    const navigate = useNavigate();
 
     //追蹤每個選項的選擇次數
     const [maxA, maxB, maxC] = [2, 6, 2];
@@ -92,6 +95,7 @@ export function FormPage() {
         console.log(updatedValues);
         //給DB的回傳值是 updatedValues
         //感謝頁面
+        navigate("thankyoupage");
 
     };
 
